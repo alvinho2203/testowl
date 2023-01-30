@@ -66,6 +66,8 @@ export default{
 </script>
 
 <style scoped>
+
+    
     #sessaoHome{
         height: 100%;
         margin-bottom: 60px;
@@ -76,6 +78,7 @@ export default{
         background-color: var(--color-background);
         display: flex;
         flex-direction: column;
+        font-family: 'Source Sans Pro', sans-serif;
         
     }
 
@@ -129,8 +132,8 @@ export default{
     }
 
     #iconeSearch{
-        width: 60px;
-        height: 60px;
+        width: 42px;
+        height:42px;
         background-color: #8E36B7;
         padding: 10px;
         border: 1px solid #8E36B7;

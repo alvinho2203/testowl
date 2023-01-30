@@ -8,20 +8,23 @@
                 <th>Valor Unitário</th>
                 <th>Total</th>
             </tr>
-            <tr v-for="produto in produtos" :key="produto.name">
+            <tr v-for="produto in produtos" :key="produto.id">
                 <td id="linhaProdutos"><div id="catProduto">{{produto.category}}</div><div id="nameProduto">{{produto.name}}</div></td>
                 <hr>
-                <td><input v-model="quantidade" class="inputQtd" id="inputQtd" type="number"></td>
+                <td><input v-model="produto.quantidade" class="inputQtd" id="inputQtd" type="number" min="1"></td>
                 <td class="precoCompra" id="precoCompra">R$ {{produto.price}}</td>
-                <td class="total">R$  <input id="inputTotal" v-model="total" type="text"></td>
+                <td class="precoCompra" id="precoCompra">R$ {{itemTotal(produto).toFixed(2)}}</td>
             </tr>
-
+            <tr>
+                <p id="totalGeral">Total geral: <span id="totalGeralNum">R$ {{ totalGeral.toFixed(2) }}</span></p>
+            </tr>
         </table>
         <div id="sessaoBotoes">
             <a href="/" id="botaoContinuar">Continuar comprando</a>
             <a href="/#/finalizar" id="botaoComprar">Concluir compra</a>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -35,29 +38,37 @@
             return{
                 produtos: [],
                 search: '',
-                quantidade:1,
-                total:0
-
             };
         },
     created(){
         this.getProduto();
+
     },
     methods:{
         getProduto(){
             api
                 .get("")
                 .then((res) => {
-                    this.produtos = res.data;
+                    this.produtos = res.data.map(item  => {
+                        return {
+                            ...item,
+                            quantidade: 1
+                        }
+                    });
                 })
                 .catch((error) => {
                     console.log(error);
                 });
-        }  
+        } ,
+        itemTotal(produto) {
+            return produto.quantidade * produto.price;
+        } 
     },
     computed:{
-        somaTotal() {
-            return this.produtos.reduce((total, produto) => total + produto.quantidade * produto.preco, 0);
+        totalGeral() {
+            return this.produtos.reduce((total, item) => {
+                return total + this.itemTotal(item);
+            }, 0);
         }
     }
 
@@ -77,7 +88,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        border: 1px solid #B7B7B7;
+        border: 1px solid #000000;
         padding: 30px;
     }
 
@@ -103,7 +114,6 @@
         line-height: 18px;
         color: #8E36B7;
         margin-bottom: 5px;
-        margin-top: 10px;
     }
 
     #nameProduto{
@@ -152,26 +162,35 @@
     }
 
     .total{
-        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #totalGeral{
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
         line-height: 130%;
         color: #434343;
+        display: flex;
+        justify-content: end;
+        margin-top: 20px;
     }
 
-    hr{
-        color: #B7B7B7;
-        opacity: 0.6;
+    #totalGeralNum{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 130%;
+        color: #8E36B7;
+        margin-left: 15px;
     }
     
     #sessaoBotoes{
         display: flex;
         margin-top: 30px;
         justify-content: end;
-
     }
-
+    
     #botaoContinuar{
         width: 262px;
         height: 52px;
@@ -187,7 +206,7 @@
         justify-content: center;
         align-items: center;
     }
-
+    
     #botaoComprar{
         width: 262px;
         height: 52px;
