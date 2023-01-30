@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="finalizarCompraLinha1">
         <form action="">
             <div id="formLinha1">
                 <div id="nomeForm">
@@ -121,6 +121,10 @@
 </script>
 
 <style scoped>
+    #finalizarCompraLinha1{
+        margin-top: 60px;
+    }
+    
     label{
         font-style: normal;
         font-weight: 400;

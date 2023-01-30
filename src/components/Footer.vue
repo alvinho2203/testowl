@@ -17,6 +17,14 @@ export default{
         background-color: #C9C9C9;
         height: 120px;
         width: 100%;
+        position: fixed;
+        bottom: 0px;
+        left: 0;
+
+    }
+    
+    #conteudoFooter{
+
         justify-content: center;
         align-items: center;
         text-align: center;

@@ -1,31 +1,31 @@
 <template>
-    <main>
-        <div id="banner">
-            <div>
-                <h1 id="tituloPrincipal">Notebooks</h1>
-                <h2 id="tituloSecundario">As melhores ofertas</h2>
-            </div>
-        </div>
-        <div id="buscar">
-            <h2 id="tituloSearch">Encontre seu produto</h2>
-            <input v-model="search" placeholder="Pesquisar " type="text" id="searchInput" name="searchInput">
-            <a href=""><img id="iconeSearch" src="@/assets/search.png" alt="Search Icon"></a>
-        </div>
-        <div id="produtoscards">
-            <div id="cardProduto">
-                <div id="card"  v-for="produto in filtroProduto" :key="produto.name" >
-                    <img id="imgProduto" :src="produto.imageUrl" :alt="produto.name">
-                    <h4 :key="produto.category" id="tituloCategoria">{{produto.category}}</h4>
-                    <h3 :key="produto.name" id="tituloProduto">{{ produto.name }}</h3>
-                    <p  :key="produto.description" id="descProduto">{{produto.description}}</p>
-                    <span :key="produto.price" id="precoProduto">R$ {{produto.price}}</span>
-                    <div id="teste">
-                    <button id="botaoComprar">Adicionar ao Carrinho</button>
-                    </div>
+    <div id="sessaoHome">
+        <main>
+            <div id="banner">
+                <div>
+                    <h1 id="tituloPrincipal">Notebooks</h1>
+                    <h2 id="tituloSecundario">As melhores ofertas</h2>
                 </div>
             </div>
-        </div>    
-    </main>
+            <div id="buscar">
+                <h2 id="tituloSearch">Encontre seu produto</h2>
+                <input v-model="search" placeholder="Pesquisar " type="text" id="searchInput" name="searchInput">
+                <a href=""><img id="iconeSearch" src="@/assets/search.png" alt="Search Icon"></a>
+            </div>
+            <div id="produtoscards">
+                <div id="cardProduto">
+                    <div id="card"  v-for="produto in filtroProduto" :key="produto.name" >
+                        <img id="imgProduto" :src="produto.imageUrl" :alt="produto.name">
+                        <h4 :key="produto.category" id="tituloCategoria">{{produto.category}}</h4>
+                        <h3 :key="produto.name" id="tituloProduto">{{ produto.name }}</h3>
+                        <p  :key="produto.description" id="descProduto">{{produto.description}}</p>
+                        <span :key="produto.price" id="precoProduto">R$ {{produto.price}}</span>
+                        <button id="botaoComprar">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>    
+        </main>
+    </div>     
 </template>
 
 <script>
@@ -66,6 +66,12 @@ export default{
 </script>
 
 <style scoped>
+    #sessaoHome{
+        height: 100%;
+        margin-bottom: 60px;
+    }
+
+
     main{
         background-color: var(--color-background);
         display: flex;

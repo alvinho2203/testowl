@@ -10,6 +10,7 @@
             </tr>
             <tr v-for="produto in produtos" :key="produto.name">
                 <td id="linhaProdutos"><div id="catProduto">{{produto.category}}</div><div id="nameProduto">{{produto.name}}</div></td>
+                <hr>
                 <td><input class="inputQtd" id="inputQtd" type="number" value="1"></td>
                 <td class="precoCompra" id="precoCompra">R$ {{produto.price}}</td>
                 <td class="total"></td>
@@ -56,6 +57,8 @@
     #finalizarCompra{
         padding-left:400px;
         padding-right: 400px;
+        margin-top: 30px;
+        margin-bottom: 60px;
     }
     
     #tabela{
