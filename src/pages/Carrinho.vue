@@ -11,9 +11,9 @@
             <tr v-for="produto in produtos" :key="produto.name">
                 <td id="linhaProdutos"><div id="catProduto">{{produto.category}}</div><div id="nameProduto">{{produto.name}}</div></td>
                 <hr>
-                <td><input class="inputQtd" id="inputQtd" type="number" value="1"></td>
+                <td><input v-model="quantidade" class="inputQtd" id="inputQtd" type="number"></td>
                 <td class="precoCompra" id="precoCompra">R$ {{produto.price}}</td>
-                <td class="total"></td>
+                <td class="total">R$  <input id="inputTotal" v-model="total" type="text"></td>
             </tr>
 
         </table>
@@ -30,7 +30,10 @@
         data(){
             return{
                 produtos: [],
-                search: ''
+                search: '',
+                quantidade:1,
+                total:0
+
             };
         },
     created(){
@@ -46,6 +49,11 @@
                 .catch((error) => {
                     console.log(error);
                 });
+        }  
+    },
+    computed:{
+        somaTotal() {
+            return this.produtos.reduce((total, produto) => total + produto.quantidade * produto.preco, 0);
         }
     }
 
@@ -125,6 +133,21 @@
         line-height: 130%;
         color: #434343;
         padding-left: 20px;
+    }
+
+    #inputTotal{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 130%;
+        color: #434343;
+        width: 97px;
+        height: 34px;
+        padding-left: 40px;
+    }
+
+    .total{
+        margin-right: 20px;
     }
     
 
