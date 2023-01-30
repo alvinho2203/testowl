@@ -10,8 +10,8 @@
 
             <div id="menu-items" :class="{active:menuActive}">
                 <ul>
-                    <li><a href=""></a>Produtos</li>
-                    <li><img id="carrinho" src="@/assets/carrinho.png" alt=""><a href=""></a></li>
+                    <li><a href="/">Produtos</a></li>
+                    <li><a href="/#/carrinho" ><img src="@/assets/carrinho.png"  alt="" id="carrinho"></a></li>
                 </ul>
             </div>
 

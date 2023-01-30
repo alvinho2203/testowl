@@ -17,6 +17,10 @@
             </tr>
 
         </table>
+        <div id="sessaoBotoes">
+            <a href="/" id="botaoContinuar">Continuar comprando</a>
+            <a href="/#/finalizar" id="botaoComprar">Concluir compra</a>
+        </div>
     </div>
 </template>
 
@@ -66,14 +70,14 @@
         padding-left:400px;
         padding-right: 400px;
         margin-top: 30px;
-        margin-bottom: 60px;
+        margin-bottom: 100px;
     }
     
     #tabela{
         width: 100%;
         justify-content: center;
         align-items: center;
-        border: 1px solid #000000;
+        border: 1px solid #B7B7B7;
         padding: 30px;
     }
 
@@ -99,6 +103,7 @@
         line-height: 18px;
         color: #8E36B7;
         margin-bottom: 5px;
+        margin-top: 10px;
     }
 
     #nameProduto{
@@ -147,9 +152,56 @@
     }
 
     .total{
-        margin-right: 20px;
+        margin-left: 20px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 130%;
+        color: #434343;
+    }
+
+    hr{
+        color: #B7B7B7;
+        opacity: 0.6;
     }
     
+    #sessaoBotoes{
+        display: flex;
+        margin-top: 30px;
+        justify-content: end;
 
+    }
+
+    #botaoContinuar{
+        width: 262px;
+        height: 52px;
+        background: #D0D0D0;
+        margin-right: 20px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #434343;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #botaoComprar{
+        width: 262px;
+        height: 52px;
+        background: #8E36B7;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 23px;
+        color: #FFFFFF;
+        border: none;
+        margin-bottom: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 </style>
