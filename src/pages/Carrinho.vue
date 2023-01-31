@@ -16,7 +16,7 @@
                 <td class="precoCompra" id="precoCompra">R$ {{itemTotal(produto).toFixed(2)}}</td>
             </tr>
             <tr>
-                <p id="totalGeral">Total geral: <span id="totalGeralNum">R$ {{ totalGeral.toFixed(2) }}</span></p>
+                <p id="totalGeral">Total à Vista <span id="totalGeralNum">R$ {{ totalGeral.toFixed(2) }}</span></p>
             </tr>
         </table>
         <div id="sessaoBotoes">
@@ -174,6 +174,7 @@
         display: flex;
         justify-content: end;
         margin-top: 20px;
+        text-transform: uppercase;
     }
 
     #totalGeralNum{

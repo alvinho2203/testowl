@@ -162,7 +162,7 @@ export default{
 
 
     #card{
-        border: 1px solid #000000;
+        border: 1px solid #ffffff;
         border-radius: 3px;
         margin-right: 30px;
         width: 326px;
@@ -171,6 +171,7 @@ export default{
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
+        box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.12);
     }
 
     #cardPesquisa{
@@ -257,8 +258,8 @@ export default{
         }
 
         #produtoscards{
-            margin-left: 401px;
-            margin-right: 401px;
+            margin-left: 300px;
+            margin-right: 300px;
         }
 
         #tituloSearch{
