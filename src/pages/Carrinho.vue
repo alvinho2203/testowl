@@ -88,7 +88,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        border: 1px solid #000000;
+        border: none;
         padding: 30px;
     }
 
